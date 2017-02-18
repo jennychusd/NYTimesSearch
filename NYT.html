@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="NYT.css">
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
  crossorigin="anonymous"></script>
@@ -13,6 +13,71 @@
 </head>
 
 <body>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h1>New York Times Search</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<h2>Search Parameters</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12" id="searchParam">
+			<form class="container-fluid">
+				<div class="row">
+					<div class="col-xs-12">
+					   <label>Search Term</label>
+					   <input type="text" class="form-control" id="searchTerm" placeholder="">
+					</div>
+				</div>
+				<div class="row">
+			 		<div class="col-xs-12">
+			   			<label>Number of Records to Retrieve:</label>
+					   	<select class="form-control" id="numRecords">
+							<option>1</option>
+							<option>5</option>
+							<option>10</option>
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+					   <label>Start Year (Optional):</label>
+					   <input type="text" class="form-control" id="startYear" placeholder="" id="searchTerm">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+					   <label>End Year (Optional):</label>
+					   <input type="text" class="form-control" id="endYear" placeholder="">
+					</div>
+				</div>
+
+				<br>
+				<a href="#" class="btn btn-md btn-primary">
+			      <span class="glyphicon glyphicon-search"></span> Search
+			   	</a>
+			   	<a href="#" class="btn btn-md btn-info">
+			      <span class="glyphicon glyphicon-trash"></span> Clear Results
+			   	</a>
+			</form>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<h2>Top Articles</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12" id="topArticles">
+		</div>
+	</div>
+	</div>
+</div>
 
 </body>
 </html>
