@@ -1,17 +1,32 @@
 
-$("#searchTerm")
 $("#searchButton").on("click",function(){
-	testfunction();
-})
+	var searchTerm = $("#searchTerm").val().trim();
+	console.log($("#searchTerm").val().trim())
+	var numRecords = $("#numRecords").val().trim();
+	// @TODO determine if blank or not
+	if ($("#startYear").val().trim().length===0){
+		startYear = "00000000";
+		console.log(startYear)
+	}
+	if ($("#endYear").val().trim().length===0){
+		endYear = "20170228";
+		console.log(endYear)
+	}
+
+	testfunction(searchTerm, numRecords, startYear, endYear);
+
+});
 
 
-function testfunction(){
+function testfunction(searchTerm, numRecords, startYear, endYear){
 	queryObject ={
-		q:"google"
+		q:searchTerm,
+		begin_date:startYear,
+		end_year:endYear,
 	}
 	queryObject = $.param(queryObject);
 	queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + "b9f91d369ff59547cd47b931d8cbc56b:0:74623931&q="+queryObject; 
-
+	console.log(queryURL);
 	$.ajax({
 		url: queryURL,
 		method: "GET"
@@ -20,7 +35,7 @@ function testfunction(){
 		var data = response.response.docs;
 		console.log(data);
 
-		for(var i = 0;i<10;i++){
+		for(var i = 0;i<numRecords;i++){
 			var articleDiv = $("<div>");
 			var titleH2 = $("<h2>");
 			var author = $("<p>");
@@ -29,7 +44,7 @@ function testfunction(){
 			var url = $("<a>");
 
 			titleH2.text(data[i].headline.main);
-			author.text(data[i].byline.original)
+			author.text(author.text(data[i].byline.original));
 			date.text(data[i].pub_date);
 			section.text(data[i].section_name);
 			url.html("<a>" + data[i].web_url + "</a>");
