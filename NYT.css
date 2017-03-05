@@ -6,9 +6,6 @@ h1 {
 	font-family: 'Open Sans', Arial, sans-serif;
 }
 
-#searchParam, #topArticles {
-	border: 1px solid #777777;
-	padding: 20px;
-	border-radius: 10px;
+.articleURL {
+	text-transform:uppercase;
 }
-
